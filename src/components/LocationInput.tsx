@@ -1,8 +1,8 @@
 import React, {ChangeEvent, useId} from 'react';
 import InputGroup from "react-bootstrap/InputGroup";
 import {useAppDispatch, useAppSelector} from "../app/configureStore";
-import {selectLocation, selectWarehouseCode} from "../ducks/app/selectors";
-import {setLocation, setWarehouseCode} from "../ducks/app/actions";
+import {selectLocation} from "../ducks/app/selectors";
+import {setLocation} from "../ducks/app/actions";
 import FormControl, {FormControlProps} from "react-bootstrap/FormControl";
 
 export default React.forwardRef<HTMLInputElement, FormControlProps>(

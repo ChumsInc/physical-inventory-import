@@ -11,7 +11,7 @@ import LocationInput from "./LocationInput";
 import FormControl from "react-bootstrap/FormControl";
 import Form from 'react-bootstrap/Form'
 import {setFilename, uploadFile} from "../ducks/app/actions";
-import {selectCanImport, selectHasErrors} from "../ducks/entry-items/selectors";
+import {selectCanImport} from "../ducks/entry-items/selectors";
 
 export default function UploadForm() {
     const dispatch = useAppDispatch();

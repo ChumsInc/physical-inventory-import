@@ -1,18 +1,18 @@
 import {CountInstance} from "../../types";
 import {createReducer} from "@reduxjs/toolkit";
 import {loadCountInstances} from "./actions";
-import dayjs from "dayjs";
 
 export interface CountInstanceState {
     list: CountInstance[];
-    status: 'idle'|'loading'
+    status: 'idle' | 'loading'
 }
-export const initialState:CountInstanceState = {
+
+export const initialState: CountInstanceState = {
     list: [],
     status: 'idle',
 }
 
-const countInstanceReducer = createReducer<CountInstanceState>(initialState,  builder => {
+const countInstanceReducer = createReducer<CountInstanceState>(initialState, builder => {
     builder
         .addCase(loadCountInstances.pending, (state) => {
             state.status = 'loading'
