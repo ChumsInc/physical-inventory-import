@@ -7,6 +7,7 @@ import {isErrorResponse, isImportResponse} from "../entry-items/utils";
 
 
 export async function uploadHandler(file: File, arg: UploadParams, dispatch: AppDispatch): Promise<void> {
+    const xhr = new XMLHttpRequest();
     try {
         const params = new URLSearchParams({location: arg.location.trim()});
         if (!arg.exec) {
@@ -19,7 +20,7 @@ export async function uploadHandler(file: File, arg: UploadParams, dispatch: App
             .replace(':params', params.toString());
 
 
-        const xhr = new XMLHttpRequest();
+
         xhr.responseType = 'json';
         xhr.upload.addEventListener('progress', ev => {
             // console.log('sendFile() progress', ev);
@@ -41,11 +42,10 @@ export async function uploadHandler(file: File, arg: UploadParams, dispatch: App
             }))
         });
 
-        xhr.upload.addEventListener('error', (ev) => {
-            dispatch(setImportMessage({
-                eventName: 'error',
-                message: JSON.stringify(ev, undefined, 2),
-            }))
+        xhr.upload.addEventListener('error', () => {
+            const response = xhr.response ?? null;
+            const error = new Error(`Error: ${xhr.status}; ${isErrorResponse(response) ? response.error : JSON.stringify(response)}`);
+            dispatch(setUploadError(serializeError(error)))
         });
 
         xhr.upload.addEventListener('timeout', (ev) => {
@@ -86,6 +86,11 @@ export async function uploadHandler(file: File, arg: UploadParams, dispatch: App
                     return Promise.reject(new Error('Error in onreadystatechange()'));
                 }
             }
+            if (xhr.status >= 400) {
+                const response = xhr.response ?? null;
+                const error = new Error(`Error: ${xhr.status}; ${isErrorResponse(response) ? response.error : JSON.stringify(response)}`);
+                dispatch(setUploadError(serializeError(error)))
+            }
         };
 
         const formData = new FormData();
@@ -95,10 +100,15 @@ export async function uploadHandler(file: File, arg: UploadParams, dispatch: App
     } catch (err: unknown) {
         if (err instanceof Error) {
             console.debug("uploadHandler()", err.message);
-            dispatch(setUploadError(err));
+            const response = xhr.response ?? null;
+            const error = new Error(`Error: ${xhr.status}; ${isErrorResponse(response) ? response.error : JSON.stringify(response)}`);
+            dispatch(setUploadError(serializeError(error)))
             return Promise.reject(err);
         }
         console.debug("uploadHandler()", err);
+        const response = xhr.response ?? null;
+        const error = new Error(`Error: ${xhr.status}; ${isErrorResponse(response) ? response.error : JSON.stringify(response)}`);
+        dispatch(setUploadError(serializeError(error)))
         return Promise.reject(new Error('Error in uploadHandler()'));
     }
 }
