@@ -1,6 +1,6 @@
 {
   "name": "physical-inventory-import",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "chums-components": "github:ChumsInc/chums-components",
