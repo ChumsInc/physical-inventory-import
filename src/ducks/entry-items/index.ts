@@ -1,5 +1,5 @@
-import {PhysInvImportItem} from "../../types";
-import {SortProps} from "chums-types";
+import type {PhysInvImportItem} from "../../types";
+import type {SortProps} from "chums-types";
 import {createReducer} from "@reduxjs/toolkit";
 import {setImportResponse, setImportSort} from "./actions";
 import {itemSorter} from "./utils";

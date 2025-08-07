@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useAppSelector} from "../app/configureStore";
 import {selectTextLines} from "../ducks/entry-items/selectors";
 import Table from "react-bootstrap/Table";
-import {TablePagination} from "chums-components";
+import {TablePagination} from "@chumsinc/sortable-tables";
 
 export default function ImportTextLinesTable() {
     const lines = useAppSelector(selectTextLines);
@@ -31,7 +31,7 @@ export default function ImportTextLinesTable() {
                 </tbody>
             </Table>
             <TablePagination page={page} onChangePage={setPage}
-                             rowsPerPage={rowsPerPage} onChangeRowsPerPage={setRowsPerPage}
+                             rowsPerPage={rowsPerPage} rowsPerPageProps={{onChange: setRowsPerPage}}
                              count={lines.length} />
         </div>
     )

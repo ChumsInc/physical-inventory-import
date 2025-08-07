@@ -1,4 +1,4 @@
-import React, {FormEvent, useRef} from 'react';
+import {type FormEvent, useRef} from 'react';
 import {useAppDispatch, useAppSelector} from "../app/configureStore";
 import {selectStatus} from "../ducks/app/selectors";
 import Row from "react-bootstrap/Row";

@@ -1,4 +1,4 @@
-import {RootState} from "../../app/configureStore";
+import type {RootState} from "../../app/configureStore";
 
 export const selectFilename = (state:RootState) => state.app.filename;
 export const selectProgress = (state:RootState) => state.app.progress;

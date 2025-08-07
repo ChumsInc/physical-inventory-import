@@ -1,5 +1,5 @@
-import {CountInstance} from "../../types";
-import {fetchJSON} from "chums-components";
+import type {CountInstance} from "../../types";
+import {fetchJSON} from "@chumsinc/ui-utils";
 
 export async function fetchCountInstances(): Promise<CountInstance[]> {
     try {

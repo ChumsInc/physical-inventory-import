@@ -1,8 +1,8 @@
-import React, {ChangeEvent, useEffect, useId} from "react";
+import React, {type ChangeEvent, useEffect, useId} from "react";
 import {useAppDispatch, useAppSelector} from "../app/configureStore";
 import {selectCountInstances, selectCountInstanceStatus} from "../ducks/count-instance/selectors";
 import InputGroup from "react-bootstrap/InputGroup";
-import FormSelect, {FormSelectProps} from "react-bootstrap/FormSelect";
+import FormSelect, {type FormSelectProps} from "react-bootstrap/FormSelect";
 import {selectCountInstance} from "../ducks/app/selectors";
 import {loadCountInstances} from "../ducks/count-instance/actions";
 import {setCountInstance} from "../ducks/app/actions";
@@ -13,11 +13,12 @@ export default React.forwardRef<HTMLSelectElement, FormSelectProps>(
     const list = useAppSelector(selectCountInstances);
     const value = useAppSelector(selectCountInstance);
     const status = useAppSelector(selectCountInstanceStatus);
-    const id = props.id ?? useId();
+    const _id = useId();
+    const id = props.id ?? _id;
 
     useEffect(() => {
         dispatch(loadCountInstances());
-    }, [])
+    }, [dispatch])
 
     const changeHandler = (ev:ChangeEvent<HTMLSelectElement>) => {
         const [instance] = list.filter(instance => instance.id.toString() === ev.target.value);

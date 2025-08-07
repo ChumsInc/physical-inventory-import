@@ -1,4 +1,4 @@
-import {CountInstance} from "../../types";
+import type {CountInstance} from "../../types";
 import {createReducer} from "@reduxjs/toolkit";
 import {loadCountInstances} from "./actions";
 

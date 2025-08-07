@@ -1,5 +1,3 @@
-import React from 'react';
-import "./App.css";
 import AlertList from "../ducks/alerts/AlertList";
 import UploadForm from "../components/UploadForm";
 import Container from "react-bootstrap/Container";

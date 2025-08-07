@@ -1,4 +1,3 @@
-import React from 'react';
 import {useAppSelector} from "../app/configureStore";
 import {selectImportError} from "../ducks/app/selectors";
 import Alert from "react-bootstrap/Alert";

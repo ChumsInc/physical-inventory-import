@@ -1,5 +1,5 @@
-import {FileStatus, ImportMessage, UploadParams} from "../../types";
-import {createReducer, SerializedError} from "@reduxjs/toolkit";
+import type {FileStatus, ImportMessage, UploadParams} from "../../types";
+import {createReducer, type SerializedError} from "@reduxjs/toolkit";
 import {
     initFile,
     setCountInstance, setFilename,

@@ -1,6 +1,6 @@
-import {AppDispatch} from "../../app/configureStore";
+import type {AppDispatch} from "../../app/configureStore";
 import {initFile, setFileProgress, setImportMessage, setUploadError} from "./actions";
-import {UploadParams} from "../../types";
+import type {UploadParams} from "../../types";
 import {serializeError} from "serialize-error";
 import {setImportResponse} from "../entry-items/actions";
 import {isErrorResponse, isImportResponse} from "../entry-items/utils";

@@ -1,5 +1,5 @@
-import {SortProps} from "chums-types";
-import {ErrorResponse, ImportResponse, PhysInvImportItem} from "../../types";
+import type {SortProps} from "chums-types";
+import type {ErrorResponse, ImportResponse, PhysInvImportItem} from "../../types";
 
 
 export const itemSorter = (sort:SortProps<PhysInvImportItem>) => (a:PhysInvImportItem, b:PhysInvImportItem) => {

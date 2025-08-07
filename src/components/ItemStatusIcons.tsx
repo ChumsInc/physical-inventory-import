@@ -1,5 +1,4 @@
-import React from 'react';
-import {PhysInvImportValidation} from "../types";
+import type {PhysInvImportValidation} from "../types";
 import Stack from "react-bootstrap/Stack";
 
 export default function ItemStatusIcons({entryId, item}: {

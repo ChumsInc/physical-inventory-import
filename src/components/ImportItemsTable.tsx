@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {SortableTable, SortableTableField, TablePagination} from "chums-components";
-import {PhysInvImportItem} from "../types";
+import {useEffect, useState} from 'react';
+import {SortableTable, type SortableTableField, TablePagination} from "@chumsinc/sortable-tables";
+import type {PhysInvImportItem} from "../types";
 import {useAppDispatch, useAppSelector} from "../app/configureStore";
 import {selectFilteredEntryItems, selectEntrySort} from "../ducks/entry-items/selectors";
-import {SortProps} from "chums-types";
+import type {SortProps} from "chums-types";
 import {setImportSort} from "../ducks/entry-items/actions";
 import ItemStatusIcons from "./ItemStatusIcons";
 import ImportItemErrors from "./ImportItemErrors";
@@ -43,7 +43,7 @@ export default function ImportItemsTable() {
             <SortableTable fields={fields} onChangeSort={sortChangeHandler} currentSort={sort} keyField="line"
                            data={data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)}/>
             <TablePagination page={page} onChangePage={setPage}
-                             rowsPerPage={rowsPerPage} onChangeRowsPerPage={setRowsPerPage}
+                             rowsPerPage={rowsPerPage} rowsPerPageProps={{onChange: setRowsPerPage}}
                              count={data.length}/>
         </div>
     )

@@ -1,4 +1,3 @@
-import React from 'react';
 import {useAppSelector} from "../app/configureStore";
 import {selectImportMessage, selectProgress} from "../ducks/app/selectors";
 import Stack from "react-bootstrap/Stack";

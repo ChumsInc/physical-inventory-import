@@ -1,7 +1,6 @@
-import React from 'react'
 import Stack from "react-bootstrap/Stack";
 
-export default function ImportItemErrors({errors}: {errors?: string|null}) {
+export default function ImportItemErrors({errors}: { errors?: string | null }) {
     if (!errors) {
         return (
             <div className="text-success">Valid</div>

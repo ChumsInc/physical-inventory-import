@@ -1,10 +1,10 @@
 import React from 'react';
-import Alert, {AlertProps} from 'react-bootstrap/Alert'
-import {ErrorAlert} from "chums-components";
+import Alert, {type AlertProps} from 'react-bootstrap/Alert'
 import {Badge} from "react-bootstrap";
 import numeral from "numeral";
+import type {StyledErrorAlert} from "@chumsinc/alert-list";
 
-export interface ContextAlertProps extends Pick<ErrorAlert, 'context'|'count'>, AlertProps {
+export interface ContextAlertProps extends Pick<StyledErrorAlert, 'context'|'count'>, AlertProps {
     children?: React.ReactNode;
 }
 

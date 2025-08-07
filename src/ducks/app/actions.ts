@@ -1,6 +1,6 @@
-import {createAction, createAsyncThunk, SerializedError} from "@reduxjs/toolkit";
-import {ImportMessage, UploadFileProps} from "../../types";
-import {AppDispatch, RootState} from "../../app/configureStore";
+import {createAction, createAsyncThunk, type SerializedError} from "@reduxjs/toolkit";
+import type {ImportMessage, UploadFileProps} from "../../types";
+import type {AppDispatch, RootState} from "../../app/configureStore";
 import {
     selectCountInstance,
     selectCountSheet,
@@ -31,7 +31,7 @@ export const uploadFile = createAsyncThunk<string, UploadFileProps, { state: Roo
         return arg.file.name;
     },
     {
-        condition: (arg, {getState}) => {
+        condition: (_, {getState}) => {
             const state = getState();
             return selectStatus(state) === 'idle'
                 && selectCountInstance(state) !== 0

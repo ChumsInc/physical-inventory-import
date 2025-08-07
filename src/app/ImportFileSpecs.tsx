@@ -1,33 +1,10 @@
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import Alert from "react-bootstrap/Alert";
-import React from "react";
+import {sampleCSV} from "@/app/sampleCSV.ts";
+import {sampleTSV} from "@/app/sampleTSV.ts";
 
-export const sampleCSV:string[] = [
-    '1VELC1.0F,859.248000,YD',
-    '1YARN608,63.249000,LB',
-    'RHOOK26,6072.000000,EA',
-    '1TG12207,5437.000000,EA',
-    '1BCLANY,45276.000000,EA',
-    '1YARN103,179.426000,LB',
-    '1ET0972000 NFL,20629.000000,EA',
-    '1ROPE4433MM,1359.138000,YD',
-    'PVC12432101,1223.000000,EA',
-    '1U12309116,0.000000,EA',
-]
 
-export const sampleTSV:string[] = [
-    'CH031122G00404	0.000000	EA',
-    'N.1020 B1	0.000000	EA',
-    '12120716	0.000000	EA',
-    '121351020	1866.000000	EA',
-    'CH090636730805	0.000000	EA',
-    'H.4.5MMCORD-06	0.000000	YD',
-    '11090150	0.000000	EA',
-    'CH040651750804	0.000000	EA',
-    '12115504IMP	658.000000	EA',
-    '12099	0.000000	EA',
-]
 
 export default function ImportFileSpecs() {
     return (

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import ImportItemsTable from "./ImportItemsTable";
 import ImportTextLinesTable from "./ImportTextLinesTable";
 import Tabs from "react-bootstrap/Tabs";
