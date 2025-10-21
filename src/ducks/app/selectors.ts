@@ -9,5 +9,6 @@ export const selectCountInstance = (state:RootState) => state.app.uploadParams.c
 export const selectWarehouseCode = (state:RootState) => state.app.uploadParams.warehouseCode;
 export const selectCountSheet = (state:RootState) => state.app.uploadParams.sheet;
 export const selectLocation = (state:RootState) => state.app.uploadParams.location;
+export const selectIsWIP = (state:RootState) => state.app.uploadParams.wip;
 export const selectImportError = (state:RootState) => state.app.error;
 

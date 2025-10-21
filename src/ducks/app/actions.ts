@@ -20,6 +20,7 @@ export const setFilename = createAction<string>('app/setFilename');
 export const initFile = createAction<string>('app/init');
 export const setFileProgress = createAction<number>('app/setFileProgress');
 export const setImportMessage = createAction<ImportMessage>('app/setImportMessage');
+export const setWIP = createAction<boolean>('app/setWIP');
 
 export const setUploadError = createAction<SerializedError | null>('app/setUploadError');
 

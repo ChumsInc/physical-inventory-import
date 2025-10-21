@@ -12,6 +12,7 @@ import FormControl from "react-bootstrap/FormControl";
 import Form from 'react-bootstrap/Form'
 import {setFilename, uploadFile} from "../ducks/app/actions";
 import {selectCanImport} from "../ducks/entry-items/selectors";
+import WipCheckbox from "@/components/WipCheckbox.tsx";
 
 export default function UploadForm() {
     const dispatch = useAppDispatch();
@@ -70,6 +71,9 @@ export default function UploadForm() {
                 <Col>
                     <FormControl size="sm" type="file" ref={fileInputRef} required onChange={fileChangeHandler}
                                  accept=".csv,application/csv,.txt,application/tsv"/>
+                </Col>
+                <Col xs="auto">
+                    <WipCheckbox/>
                 </Col>
                 <Col xs="auto">
                     <Button type="submit" size="sm" variant="secondary" disabled={status !== 'idle'}>

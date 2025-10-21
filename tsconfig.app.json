@@ -11,6 +11,7 @@
       "@/src/*": ["./*"],
       "@/app/*": ["./app/*"],
       "@/components/*": ["./components/*"],
+      "@/ducks/*": ["./ducks/*"],
       "@/slices/*": ["./slices/*"],
     },
 

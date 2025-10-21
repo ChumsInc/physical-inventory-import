@@ -10,10 +10,13 @@ export async function uploadHandler(file: File, arg: UploadParams, dispatch: App
     const xhr = new XMLHttpRequest();
     try {
         const params = new URLSearchParams({location: arg.location.trim()});
+        if (arg.wip) {
+            params.set('wip', '1');
+        }
         if (!arg.exec) {
             params.set('test', '1')
         }
-        const url = `/api/operations/production/inventory/entry/:countInstance/:warehouseCode/:sheet/import.json?:params`
+        const url = `/api/operations/production/inventory/instances/:countInstance/entries/:warehouseCode/:sheet/import.json?:params`
             .replace(':countInstance', encodeURIComponent(arg.countInstance))
             .replace(':warehouseCode', encodeURIComponent(arg.warehouseCode.trim()))
             .replace(':sheet', encodeURIComponent(arg.sheet))

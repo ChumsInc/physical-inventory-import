@@ -46,6 +46,7 @@ export interface UploadParams {
     warehouseCode: string;
     sheet: number;
     location: string;
+    wip: boolean;
     exec?: boolean;
 }
 

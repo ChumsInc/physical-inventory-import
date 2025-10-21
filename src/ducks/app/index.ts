@@ -8,7 +8,7 @@ import {
     setLocation,
     setSheet,
     setUploadError,
-    setWarehouseCode,
+    setWarehouseCode, setWIP,
     uploadFile
 } from "./actions";
 import {setImportResponse} from "../entry-items/actions";
@@ -16,6 +16,7 @@ import {setImportResponse} from "../entry-items/actions";
 export interface AppState {
     uploadParams: UploadParams;
     filename: string;
+
     progress: number;
     status: FileStatus;
     importMessage: ImportMessage | null;
@@ -28,6 +29,7 @@ const initialState: AppState = {
         warehouseCode: '',
         sheet: 0,
         location: '',
+        wip: false,
     },
     filename: '',
     progress: 0,
@@ -40,15 +42,21 @@ const appReducer = createReducer(initialState, builder => {
     builder
         .addCase(setCountInstance, (state, action) => {
             state.uploadParams.countInstance = action.payload;
+            state.uploadParams.wip = false;
         })
         .addCase(setWarehouseCode, (state, action) => {
             state.uploadParams.warehouseCode = action.payload;
+            state.uploadParams.wip = false;
         })
         .addCase(setSheet, (state, action) => {
             state.uploadParams.sheet = action.payload;
+            state.uploadParams.wip = false;
         })
         .addCase(setLocation, (state, action) => {
             state.uploadParams.location = action.payload;
+        })
+        .addCase(setWIP, (state, action) => {
+            state.uploadParams.wip = action.payload;
         })
         .addCase(initFile, (state, action) => {
             state.filename = action.payload;

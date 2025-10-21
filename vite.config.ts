@@ -11,6 +11,7 @@ export default defineConfig({
       '@/': path.resolve(process.cwd(), 'src'),
       '@/app': path.resolve(process.cwd(), 'src/app'),
       '@/components': path.resolve(process.cwd(), 'src/components'),
+      '@/ducks': path.resolve(process.cwd(), 'src/ducks'),
       '@/slices': path.resolve(process.cwd(), 'src/slices'),
     }
   },
