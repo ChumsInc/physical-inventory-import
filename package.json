@@ -1,6 +1,6 @@
 {
   "name": "physical-inventory-import",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "dependencies": {
     "@chumsinc/alert-list": "^2.2.1",
