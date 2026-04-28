@@ -6,7 +6,10 @@ export default function ErrorBoundaryFallbackAlert({error, resetErrorBoundary}: 
         <Alert color="danger" dismissible onClose={resetErrorBoundary}>
             <strong>Something went wrong!</strong>
             <div className="text-light">
-                {error.message}
+                {error instanceof Error && <div>{error.name}</div>}
+                {error instanceof Error && <div>{error.message}</div>}
+                {error instanceof Error && <code><pre>{error.stack}</pre></code>}
+                {!(error instanceof Error) && <div>An unknown error occurred.</div>}
             </div>
         </Alert>
     )

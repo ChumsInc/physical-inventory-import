@@ -31,7 +31,7 @@ export default function ImportItemsTable() {
     const [rowsPerPage, setRowsPerPage] = useState(25);
 
     useEffect(() => {
-        setPage(0);
+        Promise.resolve().then(() => setPage(0));
     }, [data, rowsPerPage]);
 
     const sortChangeHandler = (sort: SortProps<PhysInvImportItem>) => {

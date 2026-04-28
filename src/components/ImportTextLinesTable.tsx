@@ -10,7 +10,7 @@ export default function ImportTextLinesTable() {
     const [rowsPerPage, setRowsPerPage] = useState(25);
 
     useEffect(() => {
-        setPage(0);
+        Promise.resolve().then(() => setPage(0));
     }, [lines, rowsPerPage]);
     return (
         <div>
