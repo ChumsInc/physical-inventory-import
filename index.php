@@ -17,5 +17,5 @@ $ui = new WebUI2([
     'description' => ''
 ]);
 
-$ui->addViteManifest('public/js/manifest.json')
+$ui->addViteManifest()
     ->render();
