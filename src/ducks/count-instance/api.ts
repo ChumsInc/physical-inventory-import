@@ -3,7 +3,7 @@ import {fetchJSON} from "@chumsinc/ui-utils";
 
 export async function fetchCountInstances(): Promise<CountInstance[]> {
     try {
-        const url = '/api/operations/production/inventory/process/instances';
+        const url = '/api/operations/production/inventory/instances.json';
         const response = await fetchJSON<{instances:CountInstance[]}>(url, {cache: 'no-cache'});
         return response?.instances ?? [];
     } catch(err:unknown) {
